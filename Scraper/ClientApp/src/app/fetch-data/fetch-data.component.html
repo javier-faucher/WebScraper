@@ -1,0 +1,26 @@
+<h1>Search History</h1>
+
+<p *ngIf="!sessions"><em>Loading...</em></p>
+<p *ngIf="sessions.length==0"> Wow so empty! Perform some searches and come back. </p>
+<table class='table' *ngIf="sessions">
+  <thead>
+    <tr>
+      <th>Date Requested</th>
+      <th>Key Words (C)</th>
+      <th>Requested Google Url (F)</th>
+      <th>Query to match</th>
+      <th> Number of results</th>
+      <th> Position in search</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let session of sessions">
+      <td>{{ session.requestTime }}</td>
+      <td>{{ session.keyWords}}</td>
+      <td>{{ session.requestedUrl }}</td>
+      <td>{{ session.query}}</td>
+      <td> {{session.numberOfResults}}</td>
+      <td> {{session.appearedList}}</td>
+    </tr>
+  </tbody>
+</table>

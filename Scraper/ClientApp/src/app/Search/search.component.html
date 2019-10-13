@@ -1,0 +1,98 @@
+<div class="container">
+  <h1>Where do you appear?</h1>
+  <div class="flex-container row">
+    <form (ngSubmit)="onSubmit()" class="pane">
+      <div class="form-group flex-container column">
+        <div class=" flex-container column">
+          <label for="productid">Key Words</label>
+          <input type="text" id="keyWords"
+                 [(ngModel)]="model.keyWords"
+                 name="id"
+                 class="box-shadow" required #uname="ngModel">
+          <div *ngIf="uname.errors?.required&&getState()">
+            Name required.
+          </div>
+        </div>
+        <div class=" flex-container column">
+          <label for="name">query</label>
+          <input type="text" id="query"
+                 [(ngModel)]="model.query"
+                 name="name"
+                 class="box-shadow" required #uname="ngModel">
+        </div>
+        <div *ngIf="uname.errors?.required&&getState()">
+          Name required.
+        </div>
+        <div class=" flex-container column ">
+          <label for="name">Number of Results in search</label>
+          <input type="text" id="resultsNum"
+                 [(ngModel)]="model.numOfResults"
+                 name="resultsNum"
+                 class="box-shadow">
+        </div>
+        <button type="submit" [disabled]="getState()" class="submit-button">Send</button>
+      </div>      
+    </form>
+    <div class="flex-container column "*ngIf="searched">
+      <div  class="pane">
+        <label>Requested URL</label>
+        <p> The Url provided appeared {{result.appeared.length}} times in the search </p>
+        <p *ngIf="result.appeared.length!=0">{{responseString}} </p>
+      </div>
+      <div>
+      </div>
+    </div>
+  </div> 
+</div>
+<style>
+  h1{
+    padding-bottom: 20px;
+  }
+  label{
+    padding-bottom:6px;
+    padding-top:12px;
+    font:bold;
+    text-align:center;
+   
+  }
+  button{
+    width:100%;
+  }
+  .flex-container {
+    display: flex;
+  }
+  .pane {
+    padding: 10px;
+    box-shadow: 5px 4px 8px #888888;
+  }
+  .row{
+    flex-direction: row;
+  }
+  .column{
+    flex-direction: column;
+    padding:10px;
+  }
+  .box-shadow{
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 4px 8px #888888;
+  }
+  .submit-button {
+    color: black !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #BeBeBe;
+    padding: 20px;
+    border-radius: 50px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+  }
+  .submit-button:disabled{
+    visibility:hidden;
+  }
+  .submit-button:enabled{
+    visibility:visible;
+  }
+</style>
+
