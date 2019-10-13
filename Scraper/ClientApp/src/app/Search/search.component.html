@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class=" flex-container column">
-          <label for="name">query</label>
+          <label for="name">URL / query</label>
           <input type="text" id="query"
                  [(ngModel)]="model.query"
                  name="name"
@@ -36,7 +36,7 @@
     <div class="flex-container column "*ngIf="searched">
       <div  class="pane">
         <label>Requested URL</label>
-        <p> The Url provided appeared {{result.appeared.length}} times in the search </p>
+        <p> The provided URL/Query appeared {{result.appeared.length}} times in the search. </p>
         <p *ngIf="result.appeared.length!=0">{{responseString}} </p>
       </div>
       <div>
