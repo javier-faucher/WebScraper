@@ -59,17 +59,6 @@ namespace Scraper.Service_Layer
 
         }
 
-        //public List<Dictionary<string,object>> fetch()
-        //{
-        //    List<Dictionary<string, object>> sessionsDict = new List<Dictionary<string, object>>();
-        //    List<Session> sessions = sessionRepo.getAllSessions();
-        //    foreach(Session session in sessions)
-        //    {
-        //        Dictionary<string, object> dict = new Dictionary<string, object>();
-        //        dict.Add("dateRequested",session.requestTime)
-
-        //    }
-        //}
         public Session saveSession(requestBody request,string requestedUrl,int[] appearances)
         {
             string appearancesString = "";
@@ -246,6 +235,3 @@ namespace Scraper.Service_Layer
             return singleResultHtml.Substring(indexDivStart, indexDivEnd - indexDivStart);
         }
     }
-
-}
-//Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;
